@@ -6,13 +6,11 @@ This is a website for Terra Hotels. It is built using HTML, CSS, and vanilla JS.
 
 - To view the Figma design, click [here](https://www.figma.com/design/ODHkUCLFcBtllMMF3Hb0w6/Hotel-Website-Design?t=AZrsWNNjcLVb9xg8-0).
 
-- First, clone the repository, get the github link from the code button, from the project repository, and run the following command in your terminal:
+- First, clone the repository, run the following command in your terminal:
 
 ```bash
-git clone https://github.com/xyz.git
+git clone https://github.com/Ian-Chege/terra-hotels-website.git
 ```
-
-where `https://github.com/xyz.git` is the link you copied from the code button.
 
 - Then, navigate to the project directory:
 
