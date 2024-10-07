@@ -61,3 +61,147 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  position: relative;
+  height: 100vh;
+  background: url('../assets/images/homepage/Homepage_main.png') no-repeat center center/cover;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #14274a67;
+  z-index: 1;
+}
+
+.header-top {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  padding: 0 30px; 
+  z-index: 2;
+}
+
+.logo img {
+  width: 120px;
+  margin-left: 100px; 
+  margin-bottom: 20px; 
+}
+
+.nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li {
+  margin-right: 80px; 
+}
+
+.nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+
+.nav ul li a.active {
+  border-bottom: 2px solid white;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  justify-content: center;
+  text-align: left; 
+  height: 100%;
+  padding-left: 30px; 
+  padding-top: 20px; 
+}
+
+.header-text {
+  margin-bottom: 20px; 
+  margin-left: 100px; 
+}
+
+.header-text h1 {
+  font-size: 45px; 
+  margin-bottom: 10px;
+  font-weight: lighter;
+  
+}
+
+.header-text .luxury {
+  font-size: 90px; 
+  font-weight: bold;
+}
+
+.header-text .hotels {
+  font-size: 54px; 
+  font-weight: bold;
+}
+
+.header-text p {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+
+.btn {
+  align-self: center; 
+  margin-top: 20px; 
+  padding: 10px 30px;
+  background-color: #daa24e;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e68a00;
+}
