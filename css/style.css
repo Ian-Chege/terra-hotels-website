@@ -46,6 +46,13 @@
   --space-17xl: clamp(44.63rem, calc(42.14rem + 12.44vw), 51rem);
   --space-18xl: clamp(47.25rem, calc(44.62rem + 13.17vw), 54rem);
   --space-19xl: clamp(49.88rem, calc(47.09rem + 13.9vw), 57rem);
+  /* Gradient color */
+  --loading-text-gradient: linear-gradient(
+    90deg,
+    transparent 0% 16.66%,
+    var(--background-black-50) 33.33% 50%,
+    transparent 66.66% 75%
+  );
 }
 
 html {
@@ -60,6 +67,78 @@ body {
   color: var(--color-blue);
   display: flex;
   flex-direction: column;
+}
+
+/* preloader */
+.preload {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-yellow);
+  z-index: 10;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  transition: 500ms ease;
+}
+
+.preload > * {
+  transition: 250ms ease;
+}
+
+.preload.loaded > * {
+  opacity: 0;
+}
+
+.preload.loaded {
+  transition-delay: 250ms;
+  transform: translateY(100%);
+}
+
+.circle {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  border: 3px solid var(--color-white);
+  border-block-start-color: var(--background-black-50);
+  margin-block-end: 45px;
+  animation: rotate360 1s linear infinite;
+}
+
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.preload .text {
+  background-image: var(--loading-text-gradient);
+  background-size: 500%;
+  font-size: calc(2rem + 3vw);
+  font-weight: 700;
+  line-height: 1em;
+  text-transform: uppercase;
+  letter-spacing: 16px;
+  padding-inline-start: 16px;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 0.5px var(--background-black-50);
+  animation: loadingText linear 2s infinite;
+}
+
+@keyframes loadingText {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
 }
 
 .header-main {
