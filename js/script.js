@@ -52,30 +52,52 @@ function nextTestimonial() {
 showTestimonial(currentTestimonialIndex);
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Get the current URL path
-  const currentPath = window.location.pathname;
-  
-  // Get all navigation links
-  const navLinks = document.querySelectorAll('.nav-menu-ul-li');
-  
-  // Function to get the filename from path
-  function getFileName(path) {
-    // If path ends with '/' or is empty, return 'index.html'
-    if (path === '/' || path === '') return 'index.html';
-    // Otherwise return the last segment of the path
-    return path.split('/').pop();
+  // Function to get base URL - handles subdirectories in production
+  function getBaseUrl() {
+    return window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
   }
-  
-  // Get current file name
-  const currentFile = getFileName(currentPath);
-  
-  // Remove active class from all links and add to current
-  navLinks.forEach(link => {
-    const href = link.querySelector('a').getAttribute('href');
-    if (href === currentFile) {
-      link.classList.add('active');
+
+  // Function to get current page name
+  function getCurrentPage() {
+    let path = window.location.pathname;
+    let page = path.split('/').pop();
+    
+    // Handle root URL cases
+    if (page === '' || path.endsWith('/')) {
+      return 'index.html';
+    }
+    return page;
+  }
+
+  // Get all navigation items
+  const navItems = document.querySelectorAll('.nav-menu-ul-li');
+  const currentPage = getCurrentPage();
+  const baseUrl = getBaseUrl();
+
+  navItems.forEach(item => {
+    const link = item.querySelector('a');
+    if (!link) return;
+
+    // Get href and clean it up
+    let href = link.getAttribute('href');
+    if (!href) return;
+
+    // Remove any leading slashes or ./ from href
+    href = href.replace(/^\/|^\.\//, '');
+
+    // Check if this is the current page
+    if (href === currentPage || 
+        (currentPage === 'index.html' && href === '') || 
+        (currentPage === 'index.html' && href === './') ||
+        (currentPage === 'index.html' && href === 'index.html')) {
+      item.classList.add('active');
     } else {
-      link.classList.remove('active');
+      item.classList.remove('active');
+    }
+
+    // Update href to use baseUrl if needed
+    if (!href.startsWith('http') && !href.startsWith('#')) {
+      link.href = baseUrl + href;
     }
   });
 });
