@@ -50,3 +50,32 @@ function nextTestimonial() {
 
 // Initialize the first testimonial
 showTestimonial(currentTestimonialIndex);
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the current URL path
+  const currentPath = window.location.pathname;
+  
+  // Get all navigation links
+  const navLinks = document.querySelectorAll('.nav-menu-ul-li');
+  
+  // Function to get the filename from path
+  function getFileName(path) {
+    // If path ends with '/' or is empty, return 'index.html'
+    if (path === '/' || path === '') return 'index.html';
+    // Otherwise return the last segment of the path
+    return path.split('/').pop();
+  }
+  
+  // Get current file name
+  const currentFile = getFileName(currentPath);
+  
+  // Remove active class from all links and add to current
+  navLinks.forEach(link => {
+    const href = link.querySelector('a').getAttribute('href');
+    if (href === currentFile) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+});
