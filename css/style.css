@@ -249,6 +249,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
 }
 .section-header p {
   margin: 0 0 -16px 0;
@@ -272,7 +273,7 @@ body {
 .section-header h3 {
   margin: 0;
   color: var(--color-white);
-  font-weight: 600;
+  font-weight: 400;
   font-size: var(--step--1);
 }
 
@@ -577,4 +578,59 @@ h3{
 
 .newsletter button:hover {
   background-color: #003d80;
+}
+
+
+
+.facilities-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.facilities-section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.facilities-section p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.facilities-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.facility {
+  position: relative;
+}
+
+.facility img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.facility:hover img {
+  transform: scale(1.05);
+}
+
+.facility-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-transform: uppercase;
 }
